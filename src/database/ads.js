@@ -27,7 +27,7 @@ async function deleteAd(id) {
 async function updateAd(id, ad) {
   const database = await getDatabase();
   delete ad._id;
-  await database.collection(collectionName).update(
+  await database.collection(collectionName).updateOne(
     { _id: new ObjectId(id), },
     {
       $set: {
