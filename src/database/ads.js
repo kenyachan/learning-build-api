@@ -1,6 +1,6 @@
 // ./src/database/ads.js
 
-const { ObjectID, ObjectId } = require('bson');
+const {ObjectId} = require('mongodb');
 const {getDatabase} = require('./mongo');
 
 const collectionName = 'ads';
@@ -20,7 +20,7 @@ async function getAds() {
 async function deleteAd(id) {
   const database = await getDatabase();
   await database.collection(collectionName).deleteOne({
-    _id: new ObjectID(id),
+    _id: new ObjectId(id),
   });
 }
 
